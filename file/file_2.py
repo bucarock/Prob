@@ -15,3 +15,4 @@ b.sort()
 mas = a+b
 print(mas)
 f.close()
+
