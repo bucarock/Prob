@@ -13,29 +13,36 @@ dicts = {"Торт": ['Торт- Сникерс, состав:Орехи, нуг
 print('Добро пожаловать в кондитерскую!'
       'У нас доступны следующие товары:')
 for key,value in dicts.items():
-    print(key) #'-', value[0], b'-', value[1], c'-', value[2]d
-
+    print(key)
 cost = 0
 while True:
-    dict = input("Введите товар, который хотите купить или введите n для выхода")
+    dict = input("Введите товар, который хотите купить или введите n для выхода  ")
     if dict=='n' or dict not in dicts:
         break
-    b = input('Вам необходимо: Посмотреть описание, Введите 1'
-              'Посмотреть цену, Введите 2'
-              'Посмотреть количество на складе, Введите 3'
-              'Всю информацию, Введите 4'
-              'Приступить к покупке, Введите 5',)
-    if b==1:
-        print()
+    b = input("Выберите: "
+              "описание -1,"
+              " цена-2,"
+              " количество-3,"
+              " информация-4,"
+              " купить-5 ")
+    if b=='1':
+        print('Описание -', dicts[dict][0])
+    elif b=='2':
+        print('Цена  =', dicts[dict][1], 'цена за 100гр.')
+    elif b=='3':
+        print('Количество  =', dicts[dict][2], 'грамм')
+    elif b=='4':
+        print('Описание -', dicts[dict][0])
+        print('Цена  =', dicts[dict][1])
+        print('Количество  =', dicts[dict][2], 'грамм')
+    elif b=='5':
+        qty = int(input("Сколько Вы хотите купить? грамм  "))
+        if qty > dicts[dict][2]:
+            print("У нас столько нет, выберите другое количество или товар ")
+            continue
+        cost = cost + (qty * (dicts[dict][1]/100))
+        dicts[dict][2] -= qty
 
-
-#     if qty>goods[good][1]:
-#         print("У нас столько нет, выберите другое количество или товар")
-#         continue
-#     cost = cost + (qty * goods[good][0])
-#     goods[good][1] -= qty
-#
-# print(f"Вам надо заплатить {cost} р.")
-#
-# for key,value in goods.items():
-#     print(key, '-', value[0], '-', value[1])
+print(f"Вам надо заплатить {cost} р. Спасибо за покупку!")
+for key,value in dicts.items():
+    print(key, '-', value[0], '-', value[1], '-', value[2])
