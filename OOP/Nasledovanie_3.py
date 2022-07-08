@@ -16,3 +16,15 @@ class CellPhone(Camera, Radio):
 cell_phone_a = CellPhone()
 cell_phone_a.camera_method()
 cell_phone_a.radio_method()
+class Test:
+    def qw(self):
+        print('test1')
+class Test2(Test):
+    def qw(self):
+        print('test2')
+t2 = Test2()
+t2.qw()
+def we(a, b):
+    pass
+
+print(we(3,2))
