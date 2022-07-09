@@ -1,9 +1,4 @@
 class Alphabet:
-    bykv = ''
-    for i in range(ord('А'), ord('Я') + 1):
-        bykv += chr(i)
-    for i in range(ord('а'), ord('я') + 1):
-        bykv += chr(i)
     def __init__(self, lang, letters):
         self.lang = lang
         self.letters = letters

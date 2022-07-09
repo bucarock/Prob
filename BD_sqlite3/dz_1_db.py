@@ -5,7 +5,8 @@ cursor = conn.cursor()
 # Айди присваивается по порядку с таким кодом id Integer primary...
 cursor.execute('''CREATE TABLE IF NOT EXISTS tab_1(book_id INTEGER PRIMARY KEY AUTOINCREMENT,
 title VARCHAR(50), author VARCHAR(30), price DECIMAL(8,2), amount INT) ''')
-cursor.execute('''INSERT into tab_1(title, author, price, amount) VALUES('Война и мир','Лев Толстой', (124,89), 55)''')
+cursor.execute('''INSERT into tab_1(title, author, price, amount) VALUES('Война и мир','Лев Толстой', 124.89, 55)''')
+cursor.execute('''INSERT into tab_1(title, author, price, amount) VALUES('Евгений Онегин','А.С. Пушкин', 89.15, 30)''')
 conn.commit()
 cursor.execute('''SELECT*FROM tab_1''')
 k = cursor.fetchall()
